@@ -1,0 +1,21 @@
+modLoader="javafml" #mandatory
+loaderVersion="[31,)" #mandatory
+issueTrackerURL="https://github.com/sux2mfgj/claytools/issues"
+license="The MIT License (MIT)"
+displayURL="https://github.com/sux2mfgj/claytools"
+logoFile="logo.png" #optional
+authors="sux2mfgj" #optional
+
+[[mods]] #mandatory
+    modId="claytools" #mandatory
+    version="${file.jarVersion}" #mandatory
+    displayName="ClayTools" #mandatory
+    description='''
+    '''
+
+[[dependencies.claytools]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.15.2]"
+    ordering="NONE"
+    side="BOTH"
