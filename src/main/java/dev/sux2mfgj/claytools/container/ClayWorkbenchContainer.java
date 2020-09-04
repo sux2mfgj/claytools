@@ -5,6 +5,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.ContainerType;
+import net.minecraft.inventory.container.Slot;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
 
@@ -17,7 +18,29 @@ public class ClayWorkbenchContainer extends Container {
     {
         super(ContainerInit.CLAYWORKBENCH.get(), windowId);
 
-        //TODO
+        final int startX = 8;
+        final int slotSizePlus2 = 18;
+        final int hotbarY = 142;
+
+        // setup hotbar
+        for (int column = 0; column < 9; column++)
+        {
+            this.addSlot(new Slot(playerInventory, column, startX + (column * slotSizePlus2), hotbarY));
+        }
+
+        // setup player inventory
+        final int startY = 84;
+        for(int row= 0 ;row < 3;row++) {
+            for(int column = 0; column < 9; column++) {
+                this.addSlot(new Slot(
+                        playerInventory,
+                        9 + (row * 9) + column,
+                        startX + (column * slotSizePlus2),
+                        startY + (row * slotSizePlus2)));
+            }
+        }
+
+        //TODO setup Clayworkbench slot
     }
     
     // for client
