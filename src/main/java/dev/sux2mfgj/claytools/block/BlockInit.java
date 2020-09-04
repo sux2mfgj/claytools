@@ -10,6 +10,6 @@ public class BlockInit {
     public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, ClayTools.mod_id);
 
     // blocks
-    public static final RegistryObject<Block> CLAYWORKBENCH_BLOCK = BLOCKS.register("clayworkbench",
+    public static final RegistryObject<Block> CLAYWORKBENCH = BLOCKS.register("clayworkbench",
             ClayWorkbenchBlock::new);
 }

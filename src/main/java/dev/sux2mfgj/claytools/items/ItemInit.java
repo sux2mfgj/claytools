@@ -13,7 +13,7 @@ public class ItemInit {
     public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, ClayTools.mod_id);
 
     public static final RegistryObject<BlockItem> CLAYWORKBENCH_ITEM = ITEMS.register("clayworkbench", 
-            () -> new BlockItem(BlockInit.CLAYWORKBENCH_BLOCK.get(),
+            () -> new BlockItem(BlockInit.CLAYWORKBENCH.get(),
                     new Item.Properties().group(ItemGroup.BUILDING_BLOCKS))
     );
 }

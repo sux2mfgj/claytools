@@ -16,6 +16,5 @@ public class ClayWorkbenchBlock extends Block {
                 .sound(SoundType.STONE)
         );
 
-        //this.setRegistryName(new ResourceLocation(ClayTools.mod_id,"clayworkbench"));
     }
 }
