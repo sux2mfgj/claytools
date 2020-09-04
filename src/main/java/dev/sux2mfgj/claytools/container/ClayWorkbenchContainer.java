@@ -29,6 +29,6 @@ public class ClayWorkbenchContainer extends Container {
 
     @Override
     public boolean canInteractWith(PlayerEntity playerEntity) {
-        return false;
+        return true;
     }
 }

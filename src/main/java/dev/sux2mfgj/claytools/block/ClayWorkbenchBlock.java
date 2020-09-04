@@ -41,7 +41,7 @@ public class ClayWorkbenchBlock extends Block {
     @Nullable
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        return null;
+        return TileEntityInit.CLAYWORKBENCH.get().create();
     }
 
     @Override
@@ -50,7 +50,7 @@ public class ClayWorkbenchBlock extends Block {
         if(worldIn != null && !worldIn.isRemote) {
             TileEntity tile = worldIn.getTileEntity(pos);
             if (tile instanceof ClayWorkbenchTileEntity) {
-                //NetworkHooks.openGui((ServerPlayerEntity)player, (INamedContainerProvider)tile, pos);
+                NetworkHooks.openGui((ServerPlayerEntity)player, (INamedContainerProvider)tile, pos);
             }
         }
         return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
