@@ -4,6 +4,7 @@ import dev.sux2mfgj.claytools.block.BlockInit;
 import dev.sux2mfgj.claytools.block.ClayWorkbenchBlock;
 import dev.sux2mfgj.claytools.container.ContainerInit;
 import dev.sux2mfgj.claytools.items.ItemInit;
+import dev.sux2mfgj.claytools.network.NetworkManager;
 import dev.sux2mfgj.claytools.tileentity.TileEntityInit;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
@@ -32,6 +33,7 @@ public class ClayTools
         ContainerInit.CONTAINERS.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
+        NetworkManager.init();
     }
 
     private void setup(FMLCommonSetupEvent event) {
