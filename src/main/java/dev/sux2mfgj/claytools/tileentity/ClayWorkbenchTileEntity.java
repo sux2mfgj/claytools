@@ -3,6 +3,8 @@ package dev.sux2mfgj.claytools.tileentity;
 import dev.sux2mfgj.claytools.ClayTools;
 import dev.sux2mfgj.claytools.block.BlockInit;
 import dev.sux2mfgj.claytools.container.ClayWorkbenchContainer;
+import dev.sux2mfgj.claytools.items.CrudeClayPlate;
+import dev.sux2mfgj.claytools.items.ItemInit;
 import dev.sux2mfgj.claytools.utli.ClayItemStackHandler;
 import net.minecraft.block.BellBlock;
 import net.minecraft.block.RedstoneBlock;
@@ -14,6 +16,7 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
+import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -29,6 +32,8 @@ import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nullable;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ClayWorkbenchTileEntity extends TileEntity implements INamedContainerProvider {
 
@@ -38,11 +43,26 @@ public class ClayWorkbenchTileEntity extends TileEntity implements INamedContain
     private final int input_slot_index = 0;
     private final int output_slot_index = 1;
     private int a;
+    Map<Item, Item> recipeTable;
 
     public ClayWorkbenchTileEntity(TileEntityType<?> tileEntityTypeIn) {
         super(tileEntityTypeIn);
         inventory = new ClayItemStackHandler(nItemSlots, output_slot_index);
         a = 0;
+        recipeTable = new HashMap<>();
+        setupRecipes();
+    }
+    
+    private void setupRecipes() {
+        registerRecipe(ItemInit.CRUDECLAYPLATE_ITEM.get(), Items.ANVIL); //TODO temporary recipe.
+    }
+    
+    private boolean registerRecipe(Item src, Item dest) {
+        if(recipeTable.containsKey(src)) {
+            return false;
+        }
+        recipeTable.put(src, dest);
+        return true;
     }
     
     public ItemStackHandler getInventory() {
@@ -65,40 +85,24 @@ public class ClayWorkbenchTileEntity extends TileEntity implements INamedContain
         return new ClayWorkbenchContainer(windowId, playerInventory, this);
     }
 
-    /*
-    @Override
-    public void onPress(Button button) {
-        ClayTools.LOGGER.info("onPress");
-        dev.sux2mfgj.claytools.network.NetworkManager.sendTest(a++);
-
-        if (this.world != null && !this.world.isRemote)
-        {
-            ClayTools.LOGGER.info("onPress 1");
-
-            if(this.world.isBlockPowered(this.getPos())) {
-                ClayTools.LOGGER.info("onPress 2");
-
-
-
-                this.markDirty();
-                this.world.notifyBlockUpdate(this.getPos(), this.getBlockState(),
-                        this.getBlockState(), Constants.BlockFlags.BLOCK_UPDATE);
-            }
-        }
-
-
-    }
-    */
-    
     public void onPressServer()
     {
-        ItemStack output = new ItemStack(Items.COAL_BLOCK, 1);
+        ItemStack srcStack = this.inventory.getStackInSlot(input_slot_index);
+        ItemStack destStack = this.inventory.getStackInSlot(output_slot_index);
+        //TODO add a code when the destStack is full.
+        if(!recipeTable.containsKey(srcStack.getItem()) || destStack.getCount() == 64)
+        {
+            return;
+        }
+        
+        Item destItem = recipeTable.get(srcStack.getItem());
+
+        ItemStack output = new ItemStack(destItem, 1);
+        srcStack.shrink(1);
         this.inventory.insertItem(output_slot_index, output.copy(), false);
     }
 
-
     // methods for NBT
-
     @Override
     public void read(CompoundNBT compound) {
         super.read(compound);
