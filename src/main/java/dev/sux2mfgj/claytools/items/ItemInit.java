@@ -16,4 +16,7 @@ public class ItemInit {
             () -> new BlockItem(BlockInit.CLAYWORKBENCH.get(),
                     new Item.Properties().group(ItemGroup.BUILDING_BLOCKS))
     );
+    
+    public static final RegistryObject<Item> CRUDECLAYPLATE_ITEM = ITEMS.register("crudeclayplate",
+            () -> new CrudeClayPlate(new Item.Properties().group(ItemGroup.MISC)));
 }
