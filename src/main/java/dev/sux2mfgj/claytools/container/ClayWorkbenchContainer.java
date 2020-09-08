@@ -57,10 +57,6 @@ public class ClayWorkbenchContainer extends Container implements Button.IPressab
         
         this.addSlot(new SlotItemHandler(tile.getInventory(), 0, left_box_start_x + 5, box_start_y + 5));
         this.addSlot(new SlotItemHandler(tile.getInventory(), 1, right_box_start_x + 5, box_start_y+ 5));
-
-        //this.addSlot(new Slot(tile.getInventory(), 0, left_box_start_x, box_start_y));
-        //this.addSlot(new Slot(tile.getInventory(), 1, right_box_start_x, box_start_y));
-
     }
     
     // for client
@@ -86,10 +82,12 @@ public class ClayWorkbenchContainer extends Container implements Button.IPressab
         this.tileEntity.onPressServer();
     }
 
+
+    //TODO maybe this function is something wrong.
     @Nonnull
     @Override
     public ItemStack transferStackInSlot(PlayerEntity player, int index) {
-        ClayTools.LOGGER.info("transferStackInSlot" + String.format("%d", index));
+        ClayTools.LOGGER.info("transferStackInSlot " + String.format("index: %d", index));
 
         final Slot slot = this.inventorySlots.get(index);
         ItemStack returnStack = ItemStack.EMPTY;
@@ -116,8 +114,12 @@ public class ClayWorkbenchContainer extends Container implements Button.IPressab
             }
 
             if (slotStack.getCount() == returnStack.getCount()) {
+                ClayTools.LOGGER.info("transferStackInSlot 6");
+
                 return ItemStack.EMPTY;
             }
+
+            ClayTools.LOGGER.info("transferStackInSlot 7");
 
             slot.onTake(player, slotStack);
         }
