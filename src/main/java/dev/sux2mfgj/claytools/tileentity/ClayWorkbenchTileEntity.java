@@ -1,22 +1,14 @@
 package dev.sux2mfgj.claytools.tileentity;
 
 import dev.sux2mfgj.claytools.ClayTools;
-import dev.sux2mfgj.claytools.block.BlockInit;
 import dev.sux2mfgj.claytools.container.ClayWorkbenchContainer;
-import dev.sux2mfgj.claytools.items.CrudeClayPlate;
 import dev.sux2mfgj.claytools.items.ItemInit;
 import dev.sux2mfgj.claytools.utli.ClayItemStackHandler;
-import net.minecraft.block.BellBlock;
-import net.minecraft.block.RedstoneBlock;
-import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
-import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -28,7 +20,6 @@ import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nullable;
@@ -54,7 +45,7 @@ public class ClayWorkbenchTileEntity extends TileEntity implements INamedContain
     }
     
     private void setupRecipes() {
-        registerRecipe(ItemInit.CRUDECLAYPLATE_ITEM.get(), Items.ANVIL); //TODO temporary recipe.
+        registerRecipe(Items.CLAY_BALL, ItemInit.RAW_CRUDE_CLAY_PLATE_ITEM.get()); //TODO temporary recipe.
     }
     
     private boolean registerRecipe(Item src, Item dest) {
