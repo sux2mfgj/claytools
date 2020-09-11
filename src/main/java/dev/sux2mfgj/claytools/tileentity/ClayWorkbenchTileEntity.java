@@ -30,30 +30,32 @@ public class ClayWorkbenchTileEntity extends TileEntity implements INamedContain
 
     //private ItemStackHandler inventory;
     private ClayItemStackHandler inventory;
-    private final int nItemSlots = 2;
+    private final int nItemSlots = 3;
     private final int input_slot_index = 0;
     private final int output_slot_index = 1;
-    private int a;
-    Map<Item, Item> recipeTable;
+    private final int tool_slot_index = 2;
+    //Map<Item, Item> recipeTable;
+    Map<Item, Map<Item, Item>> toolTable;
 
     public ClayWorkbenchTileEntity(TileEntityType<?> tileEntityTypeIn) {
         super(tileEntityTypeIn);
         inventory = new ClayItemStackHandler(nItemSlots, output_slot_index);
-        a = 0;
-        recipeTable = new HashMap<>();
+        toolTable = new HashMap<>();
         setupRecipes();
     }
     
     private void setupRecipes() {
-        registerRecipe(Items.CLAY_BALL, ItemInit.RAW_CRUDE_CLAY_PLATE_ITEM.get()); //TODO temporary recipe.
-    }
-    
-    private boolean registerRecipe(Item src, Item dest) {
-        if(recipeTable.containsKey(src)) {
-            return false;
-        }
-        recipeTable.put(src, dest);
-        return true;
+        // empty
+        Map<Item, Item> emptyTable = new HashMap<>();
+        emptyTable.put(Items.CLAY_BALL, ItemInit.RAW_CRUDE_CLAY_PLATE_ITEM.get());
+        toolTable.put(Items.AIR , emptyTable);
+
+        Map<Item, Item> crudeClayPlateTable = new HashMap<>();
+        crudeClayPlateTable.put(ItemInit.RAW_CRUDE_CLAY_PLATE_ITEM.get(), ItemInit.RAW_CRUDE_CLAY_SPATULA_ITEM.get());
+        toolTable.put(ItemInit.CRUDE_CLAY_PLATE_ITEM.get(), crudeClayPlateTable);
+        
+        Map<Item, Item> crudeClaySpatulaTable = new HashMap<>();
+        toolTable.put(ItemInit.CRUDE_CLAY_SPATULA_ITEM.get(), crudeClaySpatulaTable);
     }
     
     public ItemStackHandler getInventory() {
@@ -80,13 +82,18 @@ public class ClayWorkbenchTileEntity extends TileEntity implements INamedContain
     {
         ItemStack srcStack = this.inventory.getStackInSlot(input_slot_index);
         ItemStack destStack = this.inventory.getStackInSlot(output_slot_index);
-        //TODO add a code when the destStack is full.
-        if(!recipeTable.containsKey(srcStack.getItem()) || destStack.getCount() == 64)
+        ItemStack toolStack = this.inventory.getStackInSlot(tool_slot_index);
+        if(!toolTable.containsKey(toolStack.getItem()))
+        {
+            return;
+        }
+        Map<Item, Item> recipe = toolTable.get(toolStack.getItem());
+        if(!recipe.containsKey(srcStack.getItem()) || destStack.getCount() == 64)
         {
             return;
         }
         
-        Item destItem = recipeTable.get(srcStack.getItem());
+        Item destItem = recipe.get(srcStack.getItem());
 
         ItemStack output = new ItemStack(destItem, 1);
         srcStack.shrink(1);

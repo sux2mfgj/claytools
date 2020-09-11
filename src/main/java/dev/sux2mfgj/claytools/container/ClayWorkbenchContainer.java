@@ -55,8 +55,12 @@ public class ClayWorkbenchContainer extends Container implements Button.IPressab
         final int left_box_start_x = 32;
         final int right_box_start_x = 120;
         
-        this.addSlot(new SlotItemHandler(tile.getInventory(), 0, left_box_start_x + 5, box_start_y + 5));
-        this.addSlot(new SlotItemHandler(tile.getInventory(), 1, right_box_start_x + 5, box_start_y+ 5));
+        // input slot
+        this.addSlot(new SlotItemHandler(tile.getInventory(), 0, left_box_start_x + 4, box_start_y + 4));
+        // output slot
+        this.addSlot(new SlotItemHandler(tile.getInventory(), 1, right_box_start_x + 4, box_start_y + 4));
+        // tool slot
+        this.addSlot(new SlotItemHandler(tile.getInventory(), 2, 80, 10));
     }
     
     // for client
