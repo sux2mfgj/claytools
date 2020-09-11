@@ -1,0 +1,14 @@
+{
+    "block.claytools.clay_workbench" : "Clay Workbench",
+
+    "item.claytools.crude_clay_shovel" : "Crude Clay Shovel",
+    "item.claytools.crude_clay_pickaxe" : "Crude Clay Pickaxe",
+    "item.claytools.raw_crude_clay_plate" : "Raw Crude Clay Plate",
+    "item.claytools.crude_clay_plate" : "Crude Clay Plate",
+    "item.claytools.raw_crude_clay_spatula" : "Raw Crude Clay Spatula",
+    "item.claytools.crude_clay_spatula" : "Crude Clay Spatula",
+    "item.claytools.raw_crude_clay_tool_unit" : "Raw Crude Clay Tool Unit",
+    "item.claytools.crude_clay_tool_unit" : "Crude Clay Tool Unit",
+    "item.claytools.raw_clay_tool_unit" : "Raw Clay Tool Unit",
+    "item.claytools.clay_tool_unit" : "Clay Tool Unit"
+}
