@@ -28,13 +28,11 @@ import java.util.Map;
 
 public class ClayWorkbenchTileEntity extends TileEntity implements INamedContainerProvider {
 
-    //private ItemStackHandler inventory;
     private ClayItemStackHandler inventory;
     private final int nItemSlots = 3;
-    private final int input_slot_index = 0;
-    private final int output_slot_index = 1;
-    private final int tool_slot_index = 2;
-    //Map<Item, Item> recipeTable;
+    public final int input_slot_index = 0;
+    public final int output_slot_index = 1;
+    public final int tool_slot_index = 2;
     Map<Item, Map<Item, Item>> toolTable;
 
     public ClayWorkbenchTileEntity(TileEntityType<?> tileEntityTypeIn) {

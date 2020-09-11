@@ -1,6 +1,6 @@
 {
     "parent" : "item/generated",
     "textures" : {
-        "layer0" : "claytools:item/crudeclayplate"
+        "layer0" : "claytools:item/raw_crude_clay_tool_unit"
     }
 }
