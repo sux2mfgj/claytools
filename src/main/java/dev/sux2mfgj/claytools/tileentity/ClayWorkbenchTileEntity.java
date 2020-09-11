@@ -68,7 +68,7 @@ public class ClayWorkbenchTileEntity extends TileEntity implements INamedContain
     @Override
     public ITextComponent getDisplayName() {
         // TODO why the name is started from "container."?
-        return new TranslationTextComponent("container." + ClayTools.mod_id + ".clayworkbench");
+        return new TranslationTextComponent("container." + ClayTools.mod_id + ".clay_workbench");
     }
 
     @Nullable

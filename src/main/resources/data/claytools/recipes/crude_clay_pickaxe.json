@@ -1,0 +1,19 @@
+{
+    "type" : "crafting_shaped",
+    "pattern" : [
+        "uuu",
+        " s ",
+        " s "
+    ],
+    "key" : {
+        "u" : {
+            "item" : "claytools:crude_clay_tool_unit"
+        },
+        "s" : {
+            "item" : "minecraft:stick"
+        }
+    },
+    "result" : {
+        "item" : "claytools:crude_clay_pickaxe"
+    }
+}

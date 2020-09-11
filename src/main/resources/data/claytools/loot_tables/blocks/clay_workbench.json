@@ -6,7 +6,7 @@
             "entries" : [
                 {
                     "type" : "minecraft:item",
-                    "name" : "claytools:clayworkbench"
+                    "name" : "claytools:clay_workbench"
                 }
             ]
         }

@@ -14,7 +14,7 @@ public class TileEntityInit {
             ClayTools.mod_id);
 
     public static final RegistryObject<TileEntityType<ClayWorkbenchTileEntity>> CLAYWORKBENCH =
-            TILE_ENTITIES.register("clayworkbench",
+            TILE_ENTITIES.register("clay_workbench",
                     () -> TileEntityType.Builder.create(
                             ClayWorkbenchTileEntity::new,
                             BlockInit.CLAYWORKBENCH.get()).build(null));

@@ -46,7 +46,6 @@ public class ClayWorkbenchBlock extends Block {
 
     @Override
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        ClayTools.LOGGER.info("onBlockActivated");
         if(worldIn != null && !worldIn.isRemote) {
             TileEntity tile = worldIn.getTileEntity(pos);
             if (tile instanceof ClayWorkbenchTileEntity) {

@@ -1,0 +1,6 @@
+{
+    "variants" :
+    {
+        "" : {"model" : "claytools:block/clay_workbench" }
+    }
+}

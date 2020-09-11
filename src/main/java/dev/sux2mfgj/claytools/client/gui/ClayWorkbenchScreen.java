@@ -14,7 +14,7 @@ import net.minecraft.util.text.StringTextComponent;
 public class ClayWorkbenchScreen extends ContainerScreen<ClayWorkbenchContainer> {
 
     private static final ResourceLocation TEXTURE = new ResourceLocation(ClayTools.mod_id,
-            "textures/gui/clayworkbench.png");
+            "textures/gui/clay_workbench.png");
 
     private Button startButton;
     ClayWorkbenchContainer container;

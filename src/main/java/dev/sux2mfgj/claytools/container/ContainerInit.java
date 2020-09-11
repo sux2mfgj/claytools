@@ -13,5 +13,5 @@ public class ContainerInit {
             new DeferredRegister<>(ForgeRegistries.CONTAINERS, ClayTools.mod_id);
 
     public static final RegistryObject<ContainerType<ClayWorkbenchContainer>> CLAYWORKBENCH =
-            CONTAINERS.register("clayworkbench", () -> IForgeContainerType.create(ClayWorkbenchContainer::new));
+            CONTAINERS.register("clay_workbench", () -> IForgeContainerType.create(ClayWorkbenchContainer::new));
 }
