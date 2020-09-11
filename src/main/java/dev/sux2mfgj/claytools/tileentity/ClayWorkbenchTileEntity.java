@@ -53,6 +53,7 @@ public class ClayWorkbenchTileEntity extends TileEntity implements INamedContain
         toolTable.put(ItemInit.CRUDE_CLAY_PLATE_ITEM.get(), crudeClayPlateTable);
         
         Map<Item, Item> crudeClaySpatulaTable = new HashMap<>();
+        crudeClaySpatulaTable.put(ItemInit.RAW_CRUDE_CLAY_PLATE_ITEM.get(), ItemInit.RAW_CRUDE_CLAY_TOOL_UNIT_ITEM.get());
         toolTable.put(ItemInit.CRUDE_CLAY_SPATULA_ITEM.get(), crudeClaySpatulaTable);
     }
     

@@ -1,0 +1,11 @@
+{
+  "type" : "minecraft:smelting",
+  "ingredient" : {
+    "item" : "claytools:raw_crude_clay_spatula"
+  },
+  "result" : {
+    "item" : "claytools:crude_clay_spatula"
+  },
+  "experience" : 1.0,
+  "cookingtime" : 200
+}
