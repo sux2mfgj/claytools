@@ -6,8 +6,6 @@ import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import org.graalvm.compiler.core.amd64.AMD64NodeLIRBuilder_OptionDescriptors;
-import org.lwjgl.system.CallbackI;
 
 public class ItemInit {
 
