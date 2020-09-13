@@ -1,0 +1,72 @@
+{
+    "type" : "minecraft:block",
+    "pools" : [
+        {
+            "rolls" : 1,
+            "entries" : [
+                {
+                    "type": "minecraft:alternatives",
+                    "children": [
+                        {
+                            "type" : "minecraft:item",
+                            "conditions" : [
+                                {
+                                    "condition" : "minecraft:match_tool",
+                                    "predicate" : {
+                                        "enchantments" : [
+                                            {
+                                                "enchantment": "minecraft:silk_touch",
+                                                "level" :{
+                                                    "min" : 1
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ],
+                            "name" : "clayore:clay_ore"
+                        },
+                        {
+                            "type" : "minecraft:item",
+                            "conditions" : [
+                                {
+                                    "condition" : "minecraft:match_tool",
+                                    "predicate" : {
+                                        "item" : "claytools:crude_clay_pickaxe"
+                                    }
+                                }
+                            ],
+                            "name" : "clayore:clay_ore",
+                            "count" : {
+                                "min" : 10,
+                                "max" : 20
+                            }
+                        },
+                        {
+                            "type": "minecraft:item",
+                            "functions" : [
+                                {
+                                    "function" : "minecraft:set_count",
+                                    "count" : {
+                                        "min" : 5,
+                                        "max" : 10,
+                                        "type" : "minecraft:uniform"
+                                    }
+                                },
+                                {
+                                    "function" : "minecraft:apply_bonus",
+                                    "enchantment" : "minecraft:fortune",
+                                    "formula" : "minecraft:uniform_bonus_count",
+                                    "parameters" : {
+                                        "bonusMultiplier" : 1
+                                    }
+                                }
+                            ],
+                            "name": "minecraft:clay_ball"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

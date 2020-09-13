@@ -13,9 +13,16 @@ authors="sux2mfgj" #optional
     description='''
     '''
 
-[[dependencies.claytools]]
-    modId="minecraft"
-    mandatory=true
-    versionRange="[1.15.2]"
-    ordering="NONE"
-    side="BOTH"
+    [[dependencies.claytools]]
+        modId="minecraft"
+        mandatory=true
+        versionRange="[1.15.2]"
+        ordering="NONE"
+        side="BOTH"
+
+    [[dependencies.claytools]]
+        modId="clayore"
+        mandatory=true
+        versionRange="[0.4.0,)"
+        ordering="AFTER"
+        side="BOTH"
