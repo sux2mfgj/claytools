@@ -36,11 +36,17 @@
                                     }
                                 }
                             ],
-                            "name" : "clayore:clay_ore",
-                            "count" : {
-                                "min" : 10,
-                                "max" : 20
-                            }
+                            "functions" : [
+                                {
+                                    "function" : "minecraft:set_count",
+                                    "count" : {
+                                        "min" : 10,
+                                        "max" : 20,
+                                        "type" : "minecraft:uniform"
+                                    }
+                                }
+                            ],
+                            "name" : "minecraft:clay_ball"
                         },
                         {
                             "type": "minecraft:item",
