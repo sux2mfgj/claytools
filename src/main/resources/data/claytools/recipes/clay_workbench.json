@@ -1,0 +1,18 @@
+{
+    "type" : "crafting_shaped",
+    "pattern" : [
+        "cc",
+        "ww"
+    ],
+    "key" : {
+        "c" : {
+            "item" : "clayore:compressed_clay"
+        },
+        "w" : {
+            "tag" : "minecraft:planks"
+        }
+    },
+    "result" : {
+        "item" : "claytools:clay_workbench"
+    }
+}
