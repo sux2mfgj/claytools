@@ -22,10 +22,11 @@ public class ItemInit {
                     new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
     // Tools
     public static final RegistryObject<ShovelItem> CRUDE_CLAY_SHOVEL_ITEM = ITEMS.register("crude_clay_shovel",
-            () -> new CrudeClayShovel(modGroup));
-    public static final RegistryObject<PickaxeItem> CRUDE_CLAY_PICKAXE_ITME = ITEMS.register("crude_clay_pickaxe",
-            () -> new CrudeClayPickaxe(modGroup));
-
+            () -> new ShovelItem(CrudeClayItemTier.CRUDE_CLAY, 1, -3.0f,
+                    new Item.Properties().group(modGroup)));
+    public static final RegistryObject<PickaxeItem> CRUDE_CLAY_PICKAXE_ITEM = ITEMS.register("crude_clay_pickaxe",
+            () -> new PickaxeItem(CrudeClayItemTier.CRUDE_CLAY, 2, -3.0f,
+                    new Item.Properties().group(modGroup)));
     // Items
     public static final RegistryObject<Item> RAW_CRUDE_CLAY_PLATE_ITEM = ITEMS.register("raw_crude_clay_plate",
             ItemInit::clayToolsItemBuilder);
